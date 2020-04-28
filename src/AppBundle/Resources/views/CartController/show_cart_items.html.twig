@@ -1,0 +1,10 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}CART{% endblock %}
+
+{% block body %}
+<h1>Welcome to the CartController:showCartItems page</h1>
+    {% for cat in cartItems %}
+    <p class="cartItemsDisplay" id="blocksdisplay"><br>{{ cat.cookie}} <br> {{ cat.id }}<br> {{ cat.carttime }}</p>
+    {% endfor %}
+{% endblock %}
