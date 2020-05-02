@@ -49,18 +49,27 @@ class Product
      */
     private $description;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="category_id", type="integer")
+     */
+    private $categoryId;
+
+
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
      * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
      */
-    private $categoryId;
+    private $category;
 
     /**
      * @return mixed
      */
     public function getCategory()
     {
-        return $this->categoryId;
+        return $this->category;
     }
 
     /**
@@ -68,7 +77,7 @@ class Product
      */
     public function setCategory($category)
     {
-        $this->category = $categoryId;
+        $this->category = $category;
     }
 
 

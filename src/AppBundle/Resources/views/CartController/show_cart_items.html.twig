@@ -1,10 +1,53 @@
 {% extends "::base.html.twig" %}
 
-{% block title %}CART{% endblock %}
-
 {% block body %}
-<h1>Welcome to the CartController:showCartItems page</h1>
-    {% for cat in cartItems %}
-    <p class="cartItemsDisplay" id="blocksdisplay"><br>{{ cat.cookie}} <br> {{ cat.id }}<br> {{ cat.carttime }}</p>
-    {% endfor %}
+
+    <h2 id="pageWidthKeeper">Welcome to the CartController:showCartItems page</h2>
+
+    <div class="list">
+        <a href="{{ path('app_admin_addproduct') }}" class="btn btn-primary">
+            <i class="fa fa-plus"></i>Add product
+        </a>
+    </div>
+
+    <div class="list">
+        <a href="{{ path('app_cartcontroller_addtocart') }}" class="btn btn-primary">
+            <i class="fa fa-plus"></i>TEST BUTTON
+        </a>
+    </div>
+
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" >CART </th>
+            <th scope="col" >Quantity</th>
+            <th scope="col" >ProductID</th>
+            <th scope="col" >CARTid</th>
+            <th colspan="2" width="10%">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cart in cartItems %}
+                <td>  {{ cart.id }}  </td>
+                <td>  {{ cart.cookie }}  </td>
+                <td>  {{ cart.cartTime }}  </td>
+                <td>
+                    <a href="{{ path('app_cartcontroller_removefromcart',{id:cart.id}) }}" class="text-danger"><i
+                                class="fa fa-times"></i> </a>
+                </td>
+            <td>
+                <a href="{{ path('app_admin_editproduct',{id:cart.id}) }}"><i class="fa fa-edit"></i>
+                </a>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+    </div>
+
+
+
+
 {% endblock %}

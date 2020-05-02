@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * photo
  *
  * @ORM\Table(name="photo")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\photoRepository")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\PhotoRepository")
  */
-class photo
+class Photo
 {
     /**
      * @var int
@@ -31,17 +31,39 @@ class photo
     /**
      * @var int
      *
-     * @ORM\Column(name="id_main", type="integer")
+     * @ORM\Column(name="is_main", type="integer")
      */
-    private $idMain;
+    private $isMain;
 
     /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="Photo")
-     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     * @var int
+     *
+     * @ORM\Column(name="product_id", type="integer")
      */
     private $productId;
 
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Product", inversedBy="photos")
+     * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
+     */
+    private $product;
+
+    /**
+     * @return mixed
+     */
+    public function getProduct()
+    {
+        return $this->product;
+    }
+
+    /**
+     * @param mixed $product
+     */
+    public function setProduct($product)
+    {
+        $this->product = $product;
+    }
 
     /**
      * Get id
@@ -78,27 +100,27 @@ class photo
     }
 
     /**
-     * Set idMain
+     * Set isMain
      *
-     * @param integer $idMain
+     * @param integer $isMain
      *
      * @return photo
      */
-    public function setIdMain($idMain)
+    public function setIsMain($isMain)
     {
-        $this->idMain = $idMain;
+        $this->isMain = $isMain;
 
         return $this;
     }
 
     /**
-     * Get idMain
+     * Get isMain
      *
      * @return int
      */
-    public function getIdMain()
+    public function getIsMain()
     {
-        return $this->idMain;
+        return $this->isMain;
     }
 
     /**

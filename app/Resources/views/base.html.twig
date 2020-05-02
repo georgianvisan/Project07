@@ -30,34 +30,31 @@
 </head>
 <body>
 <header>
-    <section class="container-lg">
+    <section class="wrapper">
         {% block header %}
     </section>
 </header>
-<main class="container-fluid padding">
-</main>
 <div class="wrapper">
     <nav id="sidebar">
         <div class="sidebar-header">
             <h3>WELCOMIREN</h3>
         </div>
-        <ul class="list-unstyled components">
+        <ul class="list-unstyled components " >
             <li>
-                <a href="#">Home</a>
-                " path('AppBundle:CartController:showCartItems') "
+                <a href="{{ path ('homepage') }}">Home</a>
 
             </li>
             <li>
-                <a href="#">Profile</a>
+                <a href="{{ path ('app_client_login') }}">Profile</a>
             </li>
             <li>
-                <a href="#">Cart</a>
+                <a href="{{ path ('show_cart_items') }}">Cart</a>
             </li>
             <li>
                 <a href="#">Search</a>        <!--  -->
             </li>
             <li>
-                <a href="#">Post Add</a>
+                <a href="{{ path ('app_admin_listproducts') }}">Products</a>
             </li>
             <li class="active">
                 <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Eye
@@ -74,20 +71,8 @@
                     </li>
                 </ul>
             </li>
-            <li class="active">
-                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Help &
-                    Contact</a>
-                <ul class="collapse list-unstyled" id="homeSubmenu">
-                    <li>
-                        <a href="#">Prod1</a>
-                    </li>
-                    <li>
-                        <a href="#">Prod2</a>
-                    </li>
-                    <li>
-                        <a href="#">Prod3</a>
-                    </li>
-                </ul>
+            <li>
+                <a href="{{ path ('app_admin_listproducts') }}">Admin</a>
             </li>
         </ul>
     </nav>
@@ -110,7 +95,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">#stayhome</a>
+                        <a class="nav-link" href="https://www.who.int" target="_blank">#stayhome</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">FAQ</a>
@@ -123,7 +108,9 @@
 
         </nav>
         {% endblock %}
-        {% block body %} {% endblock %}
+        <div class="ml-5">
+        {% block body %}{% endblock %}
+        </div>
 {% block javascripts %}
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"
             integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
@@ -138,6 +125,7 @@
             });
         });
     </script>
+
 {% endblock %}
 </body>
 </html>

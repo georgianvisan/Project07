@@ -1,0 +1,16 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Client:logIn{% endblock %}
+
+{% block body %}
+    <div class="log-form">
+        <h1>Login to your account</h1>
+        <br><br><br>
+        <form action="{{ path('app_client_showclient') }}" method="post">
+            <input type="text" title="username" placeholder="username" />
+            <input type="password" title="password" placeholder="password" />
+            <button type="submit" class="btn btn-sm btn-primary" >Login</button>
+            <a class="forgot btn navbar-btn" href="#">Forgot Username?</a>
+        </form>
+    </div><!--end log form -->
+{% endblock %}
