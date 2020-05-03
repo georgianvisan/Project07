@@ -4,13 +4,16 @@
 
 {% block body %}
     <div class="log-form">
-        <h1>Login to your account</h1>
-        <br><br><br>
+        <h2>Login to your account</h2>
         <form action="{{ path('app_client_showclient') }}" method="post">
+            <p>
             <input type="text" title="username" name="username" placeholder="username" />
-            <input type="password" title="password" name="password" placeholder="password" />
+            </p>
+            <p><input type="password" title="password" name="password" placeholder="password" /></p>
             <button type="submit" class="btn btn-sm btn-primary" >Login</button>
             <a class="forgot btn navbar-btn" href="{{ path('app_client_showclient') }}">Forgot Username?</a>
         </form>
     </div><!--end log form -->
+
+
 {% endblock %}

@@ -10,7 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 
 
-class DefaultController extends Controller
+class DefaultController extends Controller implements \Serializable
 {
     /**
      * @Route("/", name="homepage")
@@ -95,4 +95,19 @@ class DefaultController extends Controller
     }
 
 
+    /**
+     * @inheritDoc
+     */
+    public function serialize()
+    {
+        // TODO: Implement serialize() method.
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function unserialize($serialized)
+    {
+        // TODO: Implement unserialize() method.
+    }
 }

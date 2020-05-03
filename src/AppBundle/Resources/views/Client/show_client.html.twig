@@ -5,12 +5,20 @@
 {% block body %}
     {% for client in client %}
     <h1>Welcome to your login page {{ client.email }}</h1>
-    <div>
-        <div><bold>{{ client.email }}</bold></div>
-        <div><bold>{{ client.phone }}</bold></div>
-        <div><bold>{{ client.deliveryaddress }}</bold></div>
+    <div class="wrapper">
+        <div class="col-lg-8">
+            <div class="list-group">
+        <div><bold>{{ client.name }}</bold></div>
+        <div><bold>{{ client.surname }}</bold></div>
+        <div><bold>{{ client.password }}</bold></div>
     </div>
+        </div></div>
     {% endfor %}
-    <div></div>
-    <div></div>
+    {% if pass %}
+        <h1>YOUR PASSWORD IS INCORRECT, PLEASE TRY AGAIN</h1>
+        <div class="wrapper">
+            <div><bold>{{ pass }}</bold></div>
+        </div>
+    {% endif %}
 {% endblock %}
+

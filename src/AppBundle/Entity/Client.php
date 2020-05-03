@@ -40,14 +40,14 @@ class Client
      *
      * @ORM\Column(name="password", type="string", length=45)
      */
-    private $password;
+    public $password;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=45)
      */
-    private $email;
+    public $email;
 
     /**
      * @var string
