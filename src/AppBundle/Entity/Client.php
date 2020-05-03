@@ -24,6 +24,27 @@ class Client
     /**
      * @var string
      *
+     * @ORM\Column(name="name", type="string", length=45)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="surname", type="string", length=45)
+     */
+    private $surname;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=45)
+     */
+    private $password;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="email", type="string", length=45)
      */
     private $email;
@@ -70,6 +91,81 @@ class Client
     public function setEmail($email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return client
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get surname
+     *
+     * @return string
+     */
+    public function getSurname()
+    {
+        return $this->surname;
+    }
+
+
+    /**
+     * Set surname
+     *
+     * @param string $surname
+     *
+     * @return client
+     */
+    public function setSurname($surname)
+    {
+        $this->surname = $surname;
+
+        return $this;
+    }
+
+    /**
+     * Get password
+     *
+     * @return string
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+
+    /**
+     * Set password
+     *
+     * @param string $password
+     *
+     * @return client
+     */
+    public function setPassword($password)
+    {
+        $this->surname = $surname;
 
         return $this;
     }
@@ -156,9 +252,5 @@ class Client
         return $this->phone;
     }
 
-    public function showClientTest(){
-        $test = 'Adresa livrarii este'.$this->deliveryaddress;
-        return $test;
-    }
 }
 

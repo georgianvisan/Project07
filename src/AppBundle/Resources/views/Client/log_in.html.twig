@@ -7,10 +7,10 @@
         <h1>Login to your account</h1>
         <br><br><br>
         <form action="{{ path('app_client_showclient') }}" method="post">
-            <input type="text" title="username" placeholder="username" />
-            <input type="password" title="password" placeholder="password" />
+            <input type="text" title="username" name="username" placeholder="username" />
+            <input type="password" title="password" name="password" placeholder="password" />
             <button type="submit" class="btn btn-sm btn-primary" >Login</button>
-            <a class="forgot btn navbar-btn" href="#">Forgot Username?</a>
+            <a class="forgot btn navbar-btn" href="{{ path('app_client_showclient') }}">Forgot Username?</a>
         </form>
     </div><!--end log form -->
 {% endblock %}

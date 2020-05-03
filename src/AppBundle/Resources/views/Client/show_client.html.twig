@@ -3,15 +3,14 @@
 {% block title %}AppBundle:Client:showClient{% endblock %}
 
 {% block body %}
-
-    <div class="log-form">
-        <h2>Login to your account</h2>
-        <form>
-            <input type="text" title="username" placeholder="username" />
-            <input type="password" title="username" placeholder="password" />
-            <button type="submit" class="btn">Login</button>
-            <a class="forgot" href="#">Forgot Username?</a>
-        </form>
-    </div><!--end log form -->
-
+    {% for client in client %}
+    <h1>Welcome to your login page {{ client.email }}</h1>
+    <div>
+        <div><bold>{{ client.email }}</bold></div>
+        <div><bold>{{ client.phone }}</bold></div>
+        <div><bold>{{ client.deliveryaddress }}</bold></div>
+    </div>
+    {% endfor %}
+    <div></div>
+    <div></div>
 {% endblock %}

@@ -36,18 +36,10 @@ class Photo
     private $isMain;
 
     /**
-     * @var int
-     *
-     * @ORM\Column(name="product_id", type="integer")
-     */
-    private $productId;
-
-
-    /**
-     * @ORM\ManyToOne(targetEntity="Product", inversedBy="photos")
+     * @ORM\OneToMany(targetEntity="Product", mappedBy="photo")
      * @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      */
-    private $product;
+    private $productId;
 
     /**
      * @return mixed

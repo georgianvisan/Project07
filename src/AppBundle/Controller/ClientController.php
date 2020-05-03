@@ -14,10 +14,12 @@ class ClientController extends Controller
     /**
      * @Route("/logIn")
      */
-    public function logInAction()
+    public function logInAction(Request $request)
     {
         $clientRep = $this->getDoctrine()->getManager()->getRepository('AppBundle:Client');
         $clients=$clientRep->findAll();
+        $test = $request->request->get('username');
+        print_r($test);
         return $this->render('AppBundle:Client:log_in.html.twig', array(
             'clients' => $clients
         ));
@@ -40,19 +42,15 @@ class ClientController extends Controller
     {
         $log=[];
         $log['username']=$request->request->get('username');
-        $log['password']=$request->request->get('password');
-        echo "<br>";
-        var_dump($log);
-        echo "<br>";
-        echo "<br>";
+        $log['password']=$request->request->get('password'); // take through post from logIn page
         $clientRep = $this->getDoctrine()->getManager()->getRepository('AppBundle:Client');
-        $clients=$clientRep->findOneBy(array('email'=>'Butters@ion.com'));
-        if (isset($clients)){
-            print_r ($clients);
-        }
-        return $this->render('AppBundle:Client:show_client.html.twig', array(
-            // ...
-        ));
+        $clients=$clientRep->findBy(['email' => $log['username']]); // find client by e-mail in database
+        if ($clients['password'] == $log['password']) {  //check if password matches
+            return $this->render('AppBundle:Client:show_client.html.twig', array(
+                'client' => $clients,
+                'log' => $log
+            ));
+        }else echo "password not ok";
     }
 
 }
